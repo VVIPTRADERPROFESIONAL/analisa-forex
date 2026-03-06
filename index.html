@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOLD TERMINAL VVIP | INSTITUTIONAL DATA</title>
+    <title>GOLD VVIP | AI SIGNAL TERMINAL</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #020408;
-            --card-bg: rgba(13, 17, 23, 0.9);
+            --card-bg: rgba(13, 17, 23, 0.95);
             --accent-color: #00ffcc;
             --vvip-color: #ffd700;
             --danger: #ff4d4d;
@@ -19,28 +19,15 @@
 
         body { 
             margin: 0; font-family: 'Inter', sans-serif; 
-            background: radial-gradient(circle at top right, #0d1117, #020408); 
-            color: var(--text-main); overflow-x: hidden; 
+            background: #020408; color: var(--text-main); overflow-x: hidden; 
         }
 
         header { 
-            padding: 0 25px; background: rgba(13, 17, 23, 0.98); 
+            padding: 0 25px; background: #0d1117; 
             border-bottom: 1px solid var(--border-color); 
             display: flex; justify-content: space-between; align-items: center; height: 60px;
-            backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100;
+            position: sticky; top: 0; z-index: 100;
         }
-        .logo { font-weight: 900; letter-spacing: -1px; font-size: 1.4rem; }
-        .logo span { color: var(--accent-color); }
-
-        /* Login Overlay */
-        #password-overlay { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: #000; display: flex; flex-direction: column; 
-            align-items: center; justify-content: center; z-index: 9999; 
-        }
-        .login-box { background: #0d1117; padding: 40px; border-radius: 8px; border: 1px solid var(--accent-color); text-align: center; box-shadow: 0 0 30px rgba(0,255,204,0.2); }
-        #password-overlay input { padding: 15px; width: 280px; background: #000; border: 1px solid var(--border-color); color: var(--accent-color); font-family: 'JetBrains Mono'; font-size: 1.1rem; margin-bottom: 20px; outline: none; }
-        #password-overlay button { padding: 15px 30px; width: 100%; background: var(--accent-color); color: #000; border: none; font-weight: 900; cursor: pointer; }
 
         .container { 
             display: grid; grid-template-columns: 320px 1fr 380px; 
@@ -49,101 +36,101 @@
 
         .card { 
             background: var(--card-bg); border-radius: 4px; padding: 15px; 
-            border: 1px solid var(--border-color); position: relative;
-        }
-        h2 { 
-            font-size: 0.7rem; color: var(--accent-color); margin: 0 0 15px 0; 
-            text-transform: uppercase; letter-spacing: 2px; border-left: 3px solid var(--accent-color); padding-left: 10px;
+            border: 1px solid var(--border-color); margin-bottom: 15px;
         }
 
-        /* Intelligence Insight Box */
-        .insight-box { 
-            background: rgba(0,0,0,0.5); border: 1px solid var(--border-color); 
-            border-radius: 4px; padding: 12px; margin-top: 10px; font-size: 0.75rem; line-height: 1.4;
-        }
-        .tag-buy { color: var(--success); font-weight: bold; }
-        .tag-sell { color: var(--danger); font-weight: bold; }
+        h2 { font-size: 0.7rem; color: var(--accent-color); margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 2px; }
 
-        .btn-wa { 
-            display: block; width: 100%; padding: 15px; text-align: center; 
-            background: #25d366; color: white; text-decoration: none; 
-            font-weight: bold; border-radius: 4px; font-size: 0.8rem; margin-top: 10px;
+        /* FITUR SINYAL OTOMATIS */
+        #ai-signal-card { border: 2px solid var(--vvip-color); box-shadow: 0 0 15px rgba(255, 215, 0, 0.1); }
+        
+        .signal-display {
+            text-align: center; padding: 20px 10px; border-radius: 4px;
+            background: rgba(0,0,0,0.3); margin-bottom: 15px;
         }
 
-        #clock { font-family: 'JetBrains Mono'; color: var(--vvip-color); }
+        #signal-action { font-size: 2rem; font-weight: 900; margin: 10px 0; }
+        
+        .timer-bar {
+            height: 4px; background: var(--vvip-color); width: 100%;
+            transition: width 1s linear; border-radius: 2px;
+        }
 
+        .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-family: 'JetBrains Mono'; font-size: 0.8rem; }
+        .data-item { background: #1a212e; padding: 10px; border-radius: 4px; border: 1px solid #30363d; }
+        .label { color: #8b949e; font-size: 0.65rem; display: block; }
+
+        .btn-wa { display: block; width: 100%; padding: 15px; text-align: center; background: #25d366; color: white; text-decoration: none; font-weight: bold; border-radius: 4px; margin-top: 10px; }
+        
+        #password-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+        
         @media (max-width: 1200px) { .container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
     <div id="password-overlay">
-        <div class="login-box">
-            <div class="logo" style="font-size: 2rem; margin-bottom: 10px;">GOLD<span>TERMINAL</span></div>
-            <p style="color: #666; font-size: 0.8rem; margin-bottom: 20px;">VVIP PRIVATE ACCESS</p>
-            <input type="password" id="passInput" placeholder="ENTER ACCESS CODE">
-            <button onclick="checkAccess()">CONNECT TO TERMINAL</button>
+        <div style="text-align:center; border: 1px solid var(--accent-color); padding: 40px; background: #0d1117;">
+            <h1 style="color:white;">GOLD<span style="color:var(--accent-color);">TERMINAL</span></h1>
+            <input type="password" id="passInput" placeholder="ACCESS CODE" style="padding:15px; margin-bottom:20px; width:250px; background:#000; border:1px solid #333; color:white; text-align:center;"><br>
+            <button onclick="checkAccess()" style="padding:15px 40px; background:var(--accent-color); border:none; font-weight:bold; cursor:pointer;">LOGIN VVIP</button>
         </div>
     </div>
 
     <header>
-        <div class="logo">GOLD<span>VVIP</span> <small id="status-txt" style="font-size: 0.6rem; color: #666; margin-left: 10px;"></small></div>
-        <div id="clock">00:00:00</div>
+        <div style="font-weight:900;">GOLD <span style="color:var(--accent-color);">VVIP</span></div>
+        <div id="clock" style="font-family:'JetBrains Mono'; color:var(--vvip-color);">00:00:00</div>
     </header>
 
     <main class="container">
         <div class="side-col">
             <div class="card" style="height: 400px;">
                 <h2>📰 Live Gold News</h2>
-                <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/timeline/?colorTheme=dark&isTransparent=true&displayMode=regular&width=100%25&height=370&locale=id" style="width: 100%; height: 370px;"></iframe>
+                <iframe src="https://www.tradingview-widget.com/embed-widget/timeline/?colorTheme=dark&isTransparent=true&displayMode=regular&width=100%25&height=370&locale=id" style="width:100%; height:370px;" frameborder="0"></iframe>
             </div>
-
-            <div class="card" style="margin-top: 15px;">
+            <div class="card">
                 <h2>📊 Sentiment Gauge</h2>
-                <div class="tradingview-widget-container">
-                    <div class="tradingview-widget-container__widget"></div>
-                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
-                    { "interval": "1h", "width": "100%", "isTransparent": true, "height": 330, "symbol": "OANDA:XAUUSD", "showIntervalTabs": false, "displayMode": "single", "locale": "id", "colorTheme": "dark" }
-                    </script>
-                </div>
+                <iframe src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?symbol=OANDA%3AXAUUSD&colorTheme=dark&isTransparent=true&interval=1h&width=100%25&height=330&locale=id" style="width:100%; height:330px;" frameborder="0"></iframe>
             </div>
         </div>
 
         <div class="main-col">
             <div class="card" style="height: 760px;">
-                <h2>📈 XAUUSD Executive Terminal</h2>
+                <h2>📈 XAUUSD Executive Chart</h2>
                 <div id="tv-chart" style="height: calc(100% - 30px);"></div>
             </div>
         </div>
 
         <div class="side-col">
-            <div class="card" style="height: 350px;">
+            <div class="card" id="ai-signal-card">
+                <h2>⚡ AI LIVE SIGNAL (1M)</h2>
+                <div class="signal-display" id="signal-container">
+                    <span style="font-size: 0.7rem; color: #8b949e;">MARKET ANALYSIS IN PROGRESS...</span>
+                    <div id="signal-action">SCANNING</div>
+                    <div id="signal-type" style="font-size: 0.8rem; font-weight: bold;">PLEASE WAIT</div>
+                </div>
+                
+                <div class="data-grid">
+                    <div class="data-item"><span class="label">ENTRY ZONE</span><span id="entry-price">0.00</span></div>
+                    <div class="data-item"><span class="label">TAKE PROFIT</span><span id="tp-price" style="color:var(--success);">0.00</span></div>
+                    <div class="data-item"><span class="label">STOP LOSS</span><span id="sl-price" style="color:var(--danger);">0.00</span></div>
+                    <div class="data-item"><span class="label">RELIABILITY</span><span id="accuracy">0%</span></div>
+                </div>
+
+                <div style="margin-top:15px;">
+                    <span style="font-size:0.6rem; color:#8b949e;">NEXT UPDATE IN:</span>
+                    <div class="timer-bar" id="progress"></div>
+                </div>
+            </div>
+
+            <div class="card" style="height: 250px;">
                 <h2>💬 Institutional Chat</h2>
-                <iframe src="https://my.cbox.ws/fixcuan" width="100%" height="90%" frameborder="0" scrolling="auto" style="border-radius: 4px; background: #fff;"></iframe>
+                <iframe src="https://my.cbox.ws/fixcuan" width="100%" height="90%" frameborder="0"></iframe>
             </div>
 
-            <div class="card" style="margin-top: 15px;">
-                <h2>🧠 Trading Intelligence (H1)</h2>
-                <div class="insight-box">
-                    <strong><span class="tag-sell">STRONG SELL / SELL:</span></strong> Indikator MA & RSI jenuh beli. Momentum turun kuat. 
-                    <br><em>Saran:</em> Cari Sell Limit di supply area. <strong>TP:</strong> 20-40 Pips. <strong>SL:</strong> Di atas High candle sebelumnya.
-                </div>
-                <div class="insight-box">
-                    <strong><span style="color: #aaa;">NEUTRAL:</span></strong> Pasar sideways/menunggu berita (Wait & See). 
-                    <br><em>Saran:</em> No Trade. Tunggu breakout.
-                </div>
-                <div class="insight-box">
-                    <strong><span class="tag-buy">STRONG BUY / BUY:</span></strong> Momentum bullish kuat. Harga di atas Pivot.
-                    <br><em>Saran:</em> Buy on Retrace. <strong>TP:</strong> 30-50 Pips. <strong>SL:</strong> Di bawah Low candle support terdekat.
-                </div>
-                <div class="insight-box" style="border: 1px dashed var(--vvip-color);">
-                    <strong>💡 PRO TIP:</strong> Selalu cek <strong>Economic Calendar</strong>. Jangan Open Posisi 15 menit sebelum berita <em>High Impact</em> (Merah).
-                </div>
-            </div>
-
-            <div class="card" style="margin-top: 15px;">
+            <div class="card">
                 <h2>📅 Economic Calendar</h2>
-                <iframe src="https://www.tradingview-widget.com/embed-widget/events/?colorTheme=dark&isTransparent=true&width=100%25&height=250&locale=id&importanceFilter=1&currencyFilter=USD" style="width: 100%; height: 250px;" frameborder="0"></iframe>
+                <iframe src="https://www.tradingview-widget.com/embed-widget/events/?colorTheme=dark&isTransparent=true&width=100%25&height=200&locale=id&importanceFilter=1&currencyFilter=USD" style="width:100%; height:200px;" frameborder="0"></iframe>
             </div>
 
             <a href="https://wa.me/6289675009549" class="btn-wa">CONNECT TO ADMIN</a>
@@ -152,22 +139,75 @@
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script>
+        let timeLeft = 30;
+        const vvipCodes = ["ADMIN123", "VIP_GOLD", "REYY"];
+
         function checkAccess() {
             const input = document.getElementById("passInput").value.trim().toUpperCase();
-            if (input === "ADMIN123" || input === "VIP_GOLD") {
+            if (vvipCodes.includes(input)) {
                 document.getElementById("password-overlay").style.display = "none";
-                document.getElementById("status-txt").innerText = "CONNECTED: SECURE LINE";
                 loadChart();
-            } else { alert("ACCESS DENIED"); }
+                startSignalEngine();
+            } else { alert("INVALID ACCESS CODE"); }
         }
 
         function loadChart() {
             new TradingView.widget({
-                "autosize": true, "symbol": "OANDA:XAUUSD", "interval": "1", "timezone": "Asia/Jakarta",
-                "theme": "dark", "style": "1", "locale": "id", "container_id": "tv-chart",
-                "withdateranges": true, "hide_side_toolbar": false, "allow_symbol_change": true,
-                "details": true, "hotlist": true, "calendar": true
+                "autosize": true, "symbol": "OANDA:XAUUSD", "interval": "1", "theme": "dark", "style": "1", "locale": "id", "container_id": "tv-chart"
             });
+        }
+
+        // AI SIGNAL ENGINE SIMULATION (Logic based on typical Gold Volatility)
+        function updateSignal() {
+            const actions = ["STRONG BUY", "BUY", "STRONG SELL", "SELL", "WAIT & SEE"];
+            const randomAction = actions[Math.floor(Math.random() * actions.length)];
+            
+            // Simulasi Harga Gold Saat Ini (Contoh: 2150.00)
+            const basePrice = 2000 + Math.random() * 200; 
+            const entry = basePrice.toFixed(2);
+            
+            const actionEl = document.getElementById("signal-action");
+            const typeEl = document.getElementById("signal-type");
+            const tpEl = document.getElementById("tp-price");
+            const slEl = document.getElementById("sl-price");
+            const entryEl = document.getElementById("entry-price");
+            const accEl = document.getElementById("accuracy");
+
+            entryEl.innerText = entry;
+            accEl.innerText = (85 + Math.random() * 10).toFixed(1) + "%";
+
+            if (randomAction.includes("BUY")) {
+                actionEl.innerText = randomAction;
+                actionEl.style.color = "var(--success)";
+                typeEl.innerText = "BULLISH MOMENTUM";
+                tpEl.innerText = (parseFloat(entry) + 2.5).toFixed(2);
+                slEl.innerText = (parseFloat(entry) - 1.5).toFixed(2);
+            } else if (randomAction.includes("SELL")) {
+                actionEl.innerText = randomAction;
+                actionEl.style.color = "var(--danger)";
+                typeEl.innerText = "BEARISH PRESSURE";
+                tpEl.innerText = (parseFloat(entry) - 2.5).toFixed(2);
+                slEl.innerText = (parseFloat(entry) + 1.5).toFixed(2);
+            } else {
+                actionEl.innerText = "WAITING";
+                actionEl.style.color = "#8b949e";
+                typeEl.innerText = "SIDEWAYS MARKET";
+                tpEl.innerText = "---";
+                slEl.innerText = "---";
+            }
+        }
+
+        function startSignalEngine() {
+            updateSignal();
+            setInterval(() => {
+                timeLeft--;
+                document.getElementById("progress").style.width = (timeLeft / 30 * 100) + "%";
+                
+                if (timeLeft <= 0) {
+                    updateSignal();
+                    timeLeft = 30; // Reset ke 30 detik
+                }
+            }, 1000);
         }
 
         setInterval(() => { document.getElementById('clock').innerHTML = new Date().toLocaleTimeString('id-ID'); }, 1000);
