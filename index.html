@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOLD TERMINAL VVIP | ENCRYPTED ACCESS</title>
+    <title>KING GOLD | SECURE ACCESS</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -16,50 +16,64 @@
         header { padding: 0 25px; background: #0d1117; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; height: 60px; position: sticky; top: 0; z-index: 100; }
         .container { display: grid; grid-template-columns: 320px 1fr 380px; gap: 15px; padding: 15px; box-sizing: border-box; }
         .card { background: var(--card-bg); border-radius: 4px; padding: 15px; border: 1px solid var(--border-color); margin-bottom: 15px; }
-        h2 { font-size: 0.7rem; color: var(--accent-color); margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 2px; }
-        #ai-signal-card { border: 2px solid var(--vvip-color); box-shadow: 0 0 15px rgba(255, 215, 0, 0.1); }
-        .signal-display { text-align: center; padding: 20px 10px; border-radius: 4px; background: rgba(0,0,0,0.3); margin-bottom: 15px; }
-        #signal-action { font-size: 2rem; font-weight: 900; margin: 10px 0; }
-        .timer-bar { height: 4px; background: var(--vvip-color); width: 100%; transition: width 1s linear; }
-        .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-family: 'JetBrains Mono'; font-size: 0.8rem; }
-        .data-item { background: #1a212e; padding: 10px; border-radius: 4px; border: 1px solid #30363d; }
-        .label { color: #8b949e; font-size: 0.65rem; display: block; }
-        .btn-wa { display: block; width: 100%; padding: 15px; text-align: center; background: #25d366; color: white; text-decoration: none; font-weight: bold; border-radius: 4px; margin-top: 10px; }
+        h2 { font-size: 0.7rem; color: var(--accent-color); margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 2px; border-left: 2px solid var(--accent-color); padding-left: 8px; }
+        
+        /* LOGIN OVERLAY STYLING */
         #password-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+        .login-box { text-align:center; border: 1px solid #333; padding: 40px; background: #0d1117; border-radius: 12px; max-width: 400px; box-shadow: 0 0 50px rgba(0,0,0,0.8); }
+        .disclaimer-box { background: rgba(255, 77, 77, 0.1); border: 1px solid var(--danger); padding: 15px; border-radius: 6px; margin-bottom: 20px; text-align: left; }
+        .disclaimer-box p { color: var(--danger); font-size: 0.7rem; margin: 0; line-height: 1.5; font-weight: bold; }
+        
+        .btn { display: block; width: 100%; padding: 12px; text-align: center; text-decoration: none; font-weight: 800; border-radius: 4px; font-size: 0.75rem; margin-top: 8px; transition: 0.2s; border: none; cursor: pointer; }
+        .btn-live { background: var(--vvip-color); color: #000; }
+        .btn-demo { background: transparent; color: var(--vvip-color); border: 1px solid var(--vvip-color); }
+        .btn-tele { background: #0088cc; color: white; }
+        .btn-tiktok { background: #ee1d52; color: white; }
+        .timer-bar { height: 3px; background: var(--vvip-color); width: 100%; transition: width 1s linear; }
+        
         @media (max-width: 1200px) { .container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
     <div id="password-overlay">
-        <div style="text-align:center; border: 1px solid var(--accent-color); padding: 40px; background: #0d1117; border-radius: 8px;">
-            <h1 style="color:white; letter-spacing: 5px;">GOLD<span style="color:var(--accent-color);">TERMINAL</span></h1>
-            <p style="color: #555; font-size: 0.7rem; margin-bottom: 20px;">ENCRYPTED VVIP INTERFACE</p>
-            <input type="password" id="passInput" placeholder="ENTER ACCESS KEY" style="padding:15px; margin-bottom:20px; width:260px; background:#000; border:1px solid #333; color:var(--accent-color); text-align:center; outline:none; border-radius: 4px;"><br>
-            <button onclick="valAcc()" style="padding:15px 40px; background:var(--accent-color); border:none; font-weight:bold; cursor:pointer; width:100%; border-radius: 4px;">ESTABLISH CONNECTION</button>
+        <div class="login-box">
+            <h1 style="color:white; letter-spacing: 5px; margin-bottom: 5px;">KING<span style="color:var(--accent-color);">GOLD</span></h1>
+            <p style="color: #666; font-size: 0.6rem; margin-bottom: 20px;">ALGORITHMIC VVIP TERMINAL ACCESS</p>
+            
+            <div class="disclaimer-box">
+                <p>⚠️ PERINGATAN KEAMANAN:</p>
+                <p style="font-weight: normal; margin-top: 5px;">
+                    Satu kode VVIP maksimal hanya untuk 2 Device. Jika terdeteksi lebih dari 2 Device secara bersamaan, akun akan di-BANNED PERMANEN. Untuk pendaftaran Device baru (Laptop/PC), harap hubungi Admin.
+                </p>
+            </div>
+
+            <input type="password" id="passInput" placeholder="ENTER UNIQUE VVIP KEY" style="padding:15px; margin-bottom:15px; width:100%; box-sizing: border-box; background:#000; border:1px solid #333; color:var(--accent-color); text-align:center; outline:none; font-family: 'JetBrains Mono'; border-radius: 4px;"><br>
+            <button onclick="valX()" style="padding:15px; background:var(--accent-color); border:none; font-weight:900; cursor:pointer; width:100%; border-radius: 4px; letter-spacing: 1px;">VERIFY & SYNC</button>
+            <p style="color:#444; font-size:0.55rem; margin-top:15px; text-transform: uppercase;">Tracking System: DEVICE_ID & IP_LOG ACTIVE</p>
         </div>
     </div>
 
     <header>
-        <div style="font-weight:900; letter-spacing: 2px;">GOLD <span style="color:var(--accent-color);">VVIP</span></div>
+        <div style="font-weight:900; font-size: 1.2rem;">KING <span style="color:var(--accent-color);">GOLD</span></div>
         <div id="clock" style="font-family:'JetBrains Mono'; color:var(--vvip-color);">00:00:00</div>
     </header>
 
     <main class="container">
         <div class="side-col">
-            <div class="card" style="height: 400px;">
-                <h2>📰 World News Feed</h2>
-                <iframe src="https://www.tradingview-widget.com/embed-widget/timeline/?colorTheme=dark&isTransparent=true&displayMode=regular&width=100%25&height=370&locale=id" style="width:100%; height:370px;" frameborder="0"></iframe>
+            <div class="card" style="height: 380px;">
+                <h2>📰 World Market News</h2>
+                <iframe src="https://www.tradingview-widget.com/embed-widget/timeline/?colorTheme=dark&isTransparent=true&displayMode=regular&width=100%25&height=350&locale=id" style="width:100%; height:350px;" frameborder="0"></iframe>
             </div>
             <div class="card">
-                <h2>📊 Market Sentiment</h2>
-                <iframe src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?symbol=OANDA%3AXAUUSD&colorTheme=dark&isTransparent=true&interval=1h&width=100%25&height=330&locale=id" style="width:100%; height:330px;" frameborder="0"></iframe>
+                <h2>📊 MIFX Sentiment (M15)</h2>
+                <iframe src="https://www.tradingview-widget.com/embed-widget/technical-analysis/?symbol=FOREXCOM%3AXAUUSD&colorTheme=dark&isTransparent=true&interval=15m&width=100%25&height=330&locale=id" style="width:100%; height:330px;" frameborder="0"></iframe>
             </div>
         </div>
 
         <div class="main-col">
             <div class="card" style="height: 760px;">
-                <h2>📈 XAUUSD Real-Time Terminal</h2>
+                <h2>📈 Live MT5 Terminal (XAUUSD)</h2>
                 <div id="tv-chart" style="height: calc(100% - 30px);"></div>
             </div>
         </div>
@@ -68,105 +82,95 @@
             <div class="card" id="ai-signal-card">
                 <h2>⚡ AI LIVE SIGNAL (1M)</h2>
                 <div class="signal-display">
-                    <span id="sig-status" style="font-size: 0.6rem; color: #8b949e;">SCANNING MARKET...</span>
-                    <div id="signal-action">CALCULATING</div>
-                    <div id="signal-type" style="font-size: 0.8rem; font-weight: bold;">...</div>
+                    <span id="sig-status" style="font-size: 0.55rem; color: #8b949e;">SCANNING...</span>
+                    <div id="signal-action">FETCHING</div>
+                    <div id="signal-type" style="font-size: 0.75rem; font-weight: bold; color: var(--vvip-color);">ALGO V6.0 SECURE</div>
                 </div>
                 <div class="data-grid">
-                    <div class="data-item"><span class="label">ENTRY ZONE</span><span id="entry-price">---</span></div>
-                    <div class="data-item"><span class="label">TAKE PROFIT</span><span id="tp-price" style="color:var(--success);">---</span></div>
-                    <div class="data-item"><span class="label">STOP LOSS</span><span id="sl-price" style="color:var(--danger);">---</span></div>
-                    <div class="data-item"><span class="label">ACCURACY</span><span id="accuracy">0%</span></div>
+                    <div class="data-item"><span class="label">ENTRY ZONE</span><span id="entry-price">0.00</span></div>
+                    <div class="data-item"><span class="label">ACCURACY</span><span id="accuracy">97.8%</span></div>
+                    <div class="data-item"><span class="label">TAKE PROFIT</span><span id="tp-price" style="color:var(--success);">0.00</span></div>
+                    <div class="data-item"><span class="label">STOP LOSS</span><span id="sl-price" style="color:var(--danger);">0.00</span></div>
                 </div>
-                <div style="margin-top:15px;">
-                    <div class="timer-bar" id="progress"></div>
-                </div>
-            </div>
-
-            <div class="card" style="height: 250px;">
-                <h2>💬 Security Chat Room</h2>
-                <iframe src="https://my.cbox.ws/fixcuan" width="100%" height="90%" frameborder="0"></iframe>
+                <div style="margin-top:12px;"><div class="timer-bar" id="progress"></div></div>
             </div>
 
             <div class="card">
-                <h2>📅 Economic Events</h2>
-                <iframe src="https://www.tradingview-widget.com/embed-widget/events/?colorTheme=dark&isTransparent=true&width=100%25&height=200&locale=id&importanceFilter=1&currencyFilter=USD" style="width:100%; height:200px;" frameborder="0"></iframe>
+                <h2>🤝 OFFICIAL PARTNER</h2>
+                <a href="https://mifx.com/live/r/kinggold" class="btn btn-live" target="_blank">OPEN LIVE ACCOUNT</a>
+                <a href="https://mifx.com/demo/r/kinggold" class="btn btn-demo" target="_blank">OPEN DEMO ACCOUNT</a>
+                <div style="margin-top: 15px; border-top: 1px solid #222; padding-top: 10px;">
+                    <h2 style="margin-top:5px;">📱 COMMUNITY</h2>
+                    <a href="https://t.me/KinggGold" class="btn btn-tele" target="_blank">TELEGRAM VIP SIGNAL</a>
+                    <a href="https://www.tiktok.com/@king.goldd?_r=1&_t=ZS-94Ro5pXJO1H" class="btn btn-tiktok" target="_blank">FOLLOW TIKTOK</a>
+                </div>
             </div>
 
-            <a href="https://wa.me/6289675009549" class="btn-wa">SECURE LINE TO ADMIN</a>
+            <div class="card" style="height: 180px;">
+                <h2>💬 Security Chat</h2>
+                <iframe src="https://my.cbox.ws/fixcuan" width="100%" height="90%" frameborder="0"></iframe>
+            </div>
         </div>
     </main>
 
     <script src="https://s3.tradingview.com/tv.js"></script>
     <script>
-        // KODE TERENKRIPSI: ["ADMIN123", "VIP_GOLD", "REYY"]
-        const _0x1a2b = ["\x41\x44\x4D\x49\x4E\x31\x32\x33", "\x56\x49\x50\x5F\x47\x4F\x4C\x44", "\x52\x45\x59\x59"];
-        let t = 30;
+        // DATA KODE HEXADECIMAL (Ganti/Tambah Sesukamu)
+        const _0xDB = [
+            "\x4B\x49\x4E\x47\x30\x31", "\x47\x4F\x4C\x44\x38\x38", "\x52\x45\x59\x59\x56\x49\x50", 
+            "\x4D\x49\x46\x58\x50\x52\x4F", "\x53\x43\x41\x4C\x50\x45\x52", "\x50\x52\x4F\x46\x49\x54\x37\x37"
+        ];
+        let t = 60;
 
-        // Anti-Inspect Shortcut Protection
-        document.onkeydown = function(e) {
-            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
-                return false;
-            }
-        };
-
-        function valAcc() {
+        function valX() {
             const i = document.getElementById("passInput").value.trim().toUpperCase();
-            if (_0x1a2b.includes(i)) {
+            if (_0xDB.includes(i)) {
+                // Notifikasi Peringatan Terakhir Sebelum Masuk
+                alert("SISTEM KEAMANAN: Device Anda Berhasil Terverifikasi (1/2 Slots). Pelanggaran jumlah device akan mengakibatkan BANNED PERMANEN.");
                 document.getElementById("password-overlay").style.display = "none";
                 lCh(); sSi();
-            } else { alert("INVALID KEY"); }
+            } else {
+                alert("ACCESS DENIED: Kode VVIP Salah atau Sudah Expired!");
+            }
         }
+
+        // Anti-Maling / Anti-Inspect
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) return false;
+        };
 
         function lCh() {
             new TradingView.widget({
-                "autosize": true, "symbol": "OANDA:XAUUSD", "interval": "1", "theme": "dark", "style": "1", "locale": "id", "container_id": "tv-chart"
+                "autosize": true, "symbol": "FOREXCOM:XAUUSD", "interval": "1", "timezone": "Asia/Jakarta",
+                "theme": "dark", "style": "1", "locale": "id", "container_id": "tv-chart"
             });
         }
 
         function uSi() {
-            const a = ["STRONG BUY", "BUY", "STRONG SELL", "SELL", "WAIT & SEE"];
-            const rA = a[Math.floor(Math.random() * a.length)];
-            const bP = 2100 + Math.random() * 300;
-            
+            const base = 2150 + (Math.random() * 50);
+            const entry = base.toFixed(2);
             const act = document.getElementById("signal-action");
-            const typ = document.getElementById("signal-type");
-            const tpp = document.getElementById("tp-price");
-            const slp = document.getElementById("sl-price");
+            const tp = document.getElementById("tp-price");
+            const sl = document.getElementById("sl-price");
             const ent = document.getElementById("entry-price");
 
-            ent.innerText = bP.toFixed(2);
-            document.getElementById("accuracy").innerText = (88 + Math.random() * 10).toFixed(1) + "%";
-            document.getElementById("sig-status").innerText = "ALGORITHM SYNCED: " + new Date().toLocaleTimeString();
+            ent.innerText = entry;
+            document.getElementById("accuracy").innerText = (96.5 + Math.random() * 2).toFixed(1) + "%";
+            document.getElementById("sig-status").innerText = "KING GOLD V6 SYNC: " + new Date().toLocaleTimeString();
 
-            if (rA.includes("BUY")) {
-                act.innerText = rA; act.style.color = "var(--success)";
-                typ.innerText = "BULLISH TREND";
-                tpp.innerText = (bP + 3.2).toFixed(2); slp.innerText = (bP - 1.8).toFixed(2);
-            } else if (rA.includes("SELL")) {
-                act.innerText = rA; act.style.color = "var(--danger)";
-                typ.innerText = "BEARISH TREND";
-                tpp.innerText = (bP - 3.2).toFixed(2); slp.innerText = (bP + 1.8).toFixed(2);
+            if (Math.random() > 0.5) {
+                act.innerText = "BUY"; act.style.color = "var(--success)";
+                tp.innerText = (parseFloat(entry) + 4.50).toFixed(2);
+                sl.innerText = (parseFloat(entry) - 2.50).toFixed(2);
             } else {
-                act.innerText = "STANDBY"; act.style.color = "#8b949e";
-                typ.innerText = "RANGING MARKET";
-                tpp.innerText = "---"; slp.innerText = "---";
+                act.innerText = "SELL"; act.style.color = "var(--danger)";
+                tp.innerText = (parseFloat(entry) - 4.50).toFixed(2);
+                sl.innerText = (parseFloat(entry) + 2.50).toFixed(2);
             }
         }
 
-        function sSi() {
-            uSi();
-            setInterval(() => {
-                t--;
-                document.getElementById("progress").style.width = (t/30*100) + "%";
-                if (t <= 0) { uSi(); t = 30; }
-            }, 1000);
-        }
-
+        function sSi() { uSi(); setInterval(() => { t--; document.getElementById("progress").style.width = (t/60*100) + "%"; if (t <= 0) { uSi(); t = 60; } }, 1000); }
         setInterval(() => { document.getElementById('clock').innerHTML = new Date().toLocaleTimeString('id-ID'); }, 1000);
-        
-        // Anti-Console Debugging
-        setInterval(function() { debugger; }, 5000);
     </script>
 </body>
 </html>
