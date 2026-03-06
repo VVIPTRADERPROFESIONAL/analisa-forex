@@ -3,50 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOLD TERMINAL VVIP | REAL-TIME</title>
+    <title>GOLD TERMINAL VVIP | STABLE VERSION</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #05070a;
-            --card-bg: #0f141d;
-            --accent-color: #00ffcc;
-            --vvip-color: #ffd700;
-            --text-main: #ffffff;
-            --text-dim: #8b949e;
-            --success: #00c805;
-            --input-bg: #1a212e;
-        }
-
+        :root { --bg-color: #05070a; --card-bg: #0f141d; --accent-color: #00ffcc; --vvip-color: #ffd700; --text-main: #ffffff; --text-dim: #8b949e; --success: #00c805; --input-bg: #1a212e; }
         body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; }
-
-        /* Login System */
         #password-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; }
         #password-overlay input { padding: 15px; width: 280px; border-radius: 8px; border: 1px solid var(--accent-color); background: #111; color: #fff; text-align: center; font-size: 1.1em; outline: none; margin-bottom: 10px; }
         #password-overlay button { padding: 12px 30px; border-radius: 8px; border: none; background: var(--accent-color); color: #000; font-weight: bold; cursor: pointer; width: 280px; margin-bottom: 10px; }
         .btn-free { background: #333 !important; color: #fff !important; }
-
         header { padding: 10px 20px; background: var(--card-bg); border-bottom: 1px solid #30363d; display: flex; justify-content: space-between; align-items: center; height: 50px; }
         .logo { font-weight: 800; letter-spacing: 2px; color: var(--accent-color); font-size: 1.2rem; }
         .status-badge { font-size: 0.7rem; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
-
         .container { display: grid; grid-template-columns: 1fr 380px; gap: 15px; padding: 15px; min-height: calc(100vh - 85px); box-sizing: border-box; }
         .card { background: var(--card-bg); border-radius: 12px; padding: 15px; border: 1px solid #30363d; margin-bottom: 15px; position: relative; }
         h2 { font-size: 0.8rem; color: var(--accent-color); margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* Protection */
         .locked-feature { filter: blur(15px); pointer-events: none; user-select: none; }
         .lock-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10; border-radius: 12px; text-align: center; }
-        
-        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .input-group label { display: block; font-size: 0.7rem; color: var(--text-dim); margin-bottom: 5px; }
-        .input-group input { width: 100%; background: var(--input-bg); border: 1px solid #30363d; color: white; padding: 8px; border-radius: 5px; font-size: 0.85rem; box-sizing: border-box; }
-        .result-box { background: rgba(0, 255, 204, 0.05); border: 1px dashed var(--accent-color); padding: 12px; border-radius: 8px; text-align: center; margin-top: 10px; }
-        
         .btn-wa { display: block; width: 100%; padding: 12px; text-align: center; background: var(--success); color: white; text-decoration: none; font-weight: bold; border-radius: 8px; margin-top: 10px; font-size: 0.85rem; }
-
-        /* Chat initially hidden */
         #card-chat { display: none; }
-
         @media (max-width: 1100px) { .container { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -55,7 +30,7 @@
     <div id="password-overlay">
         <div class="logo" style="font-size: 2rem; margin-bottom: 10px;">GOLD TERMINAL</div>
         <p style="color: var(--text-dim); margin-bottom: 25px;">XAUUSD VVIP ANALYTICS</p>
-        <input type="text" id="passInput" placeholder="KODE VVIP">
+        <input type="text" id="passInput" placeholder="Ketik: ADMIN123">
         <button onclick="checkAccess('VVIP')">LOGIN VVIP</button>
         <button onclick="checkAccess('FREE')" class="btn-free">MASUK GRATIS</button>
     </div>
@@ -67,37 +42,80 @@
 
     <main class="container">
         <div class="left-col">
-            <div class="card" style="height: 750px;">
-                <h2>📊 Live Chart - XAUUSD (FXCM)</h2>
+            <div class="card" style="height: 700px;">
+                <h2>📊 Live Chart - XAUUSD (Precision)</h2>
                 <div id="tradingview_chart" style="height: calc(100% - 30px);"></div>
             </div>
         </div>
-
         <div class="right-col">
-            <div class="card" id="card-calc">
-                <h2>🧮 Lot Calculator</h2>
-                <div class="vvip-content">
-                    <div class="calc-grid">
-                        <div class="input-group"><label>Balance</label><input type="number" id="balance" value="1000" oninput="calculateLot()"></div>
-                        <div class="input-group"><label>Risk %</label><input type="number" id="riskPercent" value="1" step="0.1" oninput="calculateLot()"></div>
-                        <div class="input-group"><label>SL (Pips)</label><input type="number" id="slPips" value="30" oninput="calculateLot()"></div>
-                        <div class="input-group"><label>Curr</label><input type="text" value="USD" readonly></div>
-                    </div>
-                    <div class="result-box"><span id="lotResult" style="font-size:1.5rem; font-weight:800; color:var(--accent-color);">0.03</span></div>
-                </div>
-            </div>
-
             <div class="card" id="card-chat" style="height: 400px;">
-                <h2>💬 Member Sharing (fixcuan)</h2>
+                <h2>💬 Member Sharing</h2>
                 <div class="vvip-content" style="height: 100%;">
                     <iframe src="https://my.cbox.ws/fixcuan" width="100%" height="90%" frameborder="0" scrolling="auto" style="border-radius: 8px; background: white;"></iframe>
                 </div>
             </div>
-
             <div class="card" id="card-signal">
                 <h2>⚡ AI GOLD SIGNAL (1M)</h2>
                 <div class="vvip-content" id="signal-area">
                     <div class="tradingview-widget-container">
                         <div class="tradingview-widget-container__widget"></div>
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
-                        { "interval": "1m", "width": "100%", "isTransparent": true, "height": "220", "symbol": "FXCM
+                        { "interval": "1m", "width": "100%", "isTransparent": true, "height": "220", "symbol": "FXCM:XAUUSD", "showIntervalTabs": false, "displayMode": "single", "locale": "id", "colorTheme": "dark" }
+                        </script>
+                    </div>
+                    <a href="https://wa.me/6289675009549" class="btn-wa">KONSULTASI VVIP</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script>
+        // KODE LOGIN: Pastikan diketik sama persis (Besar/Kecil tidak masalah sekarang)
+        const vvipCodes = ["ADMIN123", "VIP_GOLD", "REYY"];
+
+        function checkAccess(type) {
+            const inputVal = document.getElementById("passInput").value.trim().toUpperCase();
+            const statusBadge = document.getElementById("user-status");
+            const chatCard = document.getElementById("card-chat");
+
+            if (type === 'VVIP') {
+                if (vvipCodes.indexOf(inputVal) !== -1) {
+                    document.getElementById("password-overlay").style.display = "none";
+                    statusBadge.innerText = "VVIP MEMBER";
+                    statusBadge.style.background = "var(--vvip-color)";
+                    statusBadge.style.color = "#000";
+                    chatCard.style.display = "block";
+                    loadChart();
+                } else {
+                    alert("KODE SALAH! Gunakan: ADMIN123");
+                }
+            } else {
+                document.getElementById("password-overlay").style.display = "none";
+                statusBadge.innerText = "FREE USER";
+                statusBadge.style.background = "#555";
+                chatCard.style.display = "none";
+                lockFeature("card-signal");
+                loadChart();
+            }
+        }
+
+        function lockFeature(id) {
+            const card = document.getElementById(id);
+            const overlay = document.createElement("div");
+            overlay.className = "lock-overlay";
+            overlay.innerHTML = `<div style="font-size:1.5rem;">🔒</div><div style="color:var(--vvip-color); font-weight:bold; font-size:0.6rem;">KHUSUS VVIP</div>`;
+            card.querySelector(".vvip-content").classList.add("locked-feature");
+            card.appendChild(overlay);
+        }
+
+        function loadChart() {
+            new TradingView.widget({
+                "autosize": true, "symbol": "FXCM:XAUUSD", "interval": "1", "timezone": "Asia/Jakarta", "theme": "dark", "style": "1", "locale": "id", "container_id": "tradingview_chart"
+            });
+        }
+
+        setInterval(() => { document.getElementById('clock').innerHTML = new Date().toLocaleTimeString('id-ID'); }, 1000);
+    </script>
+</body>
+</html>
