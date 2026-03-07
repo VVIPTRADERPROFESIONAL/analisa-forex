@@ -48,7 +48,8 @@
         .btn-demo { background: transparent; color: var(--vvip-color); border: 1px solid var(--vvip-color); }
         .btn-wa { background: #25d366; color: white; }
 
-        .calc-input { width: 100%; padding: 8px; margin-bottom: 10px; background: #000; border: 1px solid #333; color: var(--vvip-color); border-radius: 4px; box-sizing: border-box; font-family: 'JetBrains Mono'; font-size: 0.7rem; }
+        /* CSS KHUSUS KALKULATOR */
+        .calc-input { width: 100%; padding: 8px; margin-bottom: 10px; background: #000; border: 1px solid #333; color: var(--vvip-color); border-radius: 4px; box-sizing: border-box; font-family: 'JetBrains Mono'; font-size: 0.7rem; outline: none; }
         .calc-label { font-size: 0.6rem; color: #8b949e; display: block; margin-bottom: 3px; }
 
         @media (max-width: 1200px) { .container { grid-template-columns: 1fr; } }
@@ -200,8 +201,18 @@
 
     <script src="https://s3.tradingview.com/tv.js"></script>
     <script>
+        // DAFTAR KEY VVIP
         const _0xH = ["KING01", "GOLD88", "REYYVVIP", "MIFXPRO", "SCALPER", "PROFIT77", "VIPGOLD", "MASTER22", "XAUUSD", "CUANBOSS"];
         let t = 60;
+
+        // PROTEKSI GANDA (ANTI KLIK KANAN & F12)
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123) return false; // F12
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; // Inspect
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false; // Console
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // View Source
+        };
 
         window.onload = function() {
             if (localStorage.getItem("kg_previewUsed") === "true") {
@@ -258,13 +269,13 @@
             const balance = parseFloat(document.getElementById('calc-balance').value);
             const risk = parseFloat(document.getElementById('calc-risk').value);
             const sl = parseFloat(document.getElementById('calc-sl').value);
-            if(balance && sl) {
+            if(balance && sl && balance > 0 && sl > 0) {
                 const riskAmount = balance * (risk/100);
                 let lot = riskAmount / (sl * 10);
                 if(lot < 0.01) lot = 0.01;
                 document.getElementById('res-lot').innerText = lot.toFixed(2);
                 document.getElementById('calc-result').style.display = 'block';
-            } else { alert("Isi Saldo dan SL dulu, Bosku!"); }
+            } else { alert("Mohon isi Saldo dan SL dengan angka yang benar!"); }
         }
 
         function uSi() {
@@ -289,23 +300,4 @@
             } else {
                 document.getElementById("signal-action").innerText = "STRONG SELL";
                 document.getElementById("signal-action").style.color = "var(--danger)";
-                document.getElementById("tp-price").innerText = (parseFloat(entry) - parseFloat(dynamicTP)).toFixed(2);
-                document.getElementById("sl-price").innerText = (parseFloat(entry) + 1.20).toFixed(2);
-            }
-        }
-
-        function sSi() {
-            uSi();
-            setInterval(() => {
-                t--;
-                document.getElementById("progress-bar").style.width = (t/60*100) + "%";
-                if (t <= 0) { uSi(); t = 60; }
-            }, 1000);
-        }
-
-        function createHeatmap() {
-            const container = document.getElementById('heatmap-bars');
-            if(!container) return;
-            container.innerHTML = '';
-            for (let i = 0; i < 15; i++) {
-                const width = Math
+                document.getElementById("tp-price").innerText = (parseFloat(entry) - parseFloat(dynamicTP)).toFixed
